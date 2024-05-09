@@ -5,4 +5,14 @@ export default defineNuxtConfig({
     // prerender index route by default
     '/': { prerender: true },
   },
+  alias: {
+    assets: "/rootDir>/assets"
+  },
+  css: ["~/assets/Main.css"],
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
 });
