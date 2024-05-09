@@ -6,7 +6,7 @@
   <div class="">
     <header>
       <nav>
-        <ul class="flex justify-end space-x-4 p-4 font-bold">
+        <ul class="flex justify-end space-x-4 p-4 font-bold bg-blue-500">
           <li><NuxtLink to="/">Home</NuxtLink></li>
           <li><NuxtLink to="/pokemon">Pokemon</NuxtLink></li>
           <li><NuxtLink to="/items">Items</NuxtLink></li>
