@@ -6,7 +6,7 @@
 </script>
 
 <template>
-  <div class="">
+  <div class="bg-zinc-100">
     <header>
       <nav>
         <ul class="flex justify-end space-x-4 p-4 font-bold bg-blue-500">

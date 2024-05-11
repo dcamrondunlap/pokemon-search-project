@@ -27,7 +27,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div>
+  <div class="grid grid-cols-4">
     <div v-for="(berry, i) in berries" :key="i" class="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
       <div class="p-6">
         <h5 class="block font-sans mb-2 text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900 uppercase">
