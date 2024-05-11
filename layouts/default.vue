@@ -1,5 +1,8 @@
 <script setup>
-
+// Masterball colors
+//60% white (might use a slightly darker white)
+//30% #AC13EC
+//10% #EC13BF
 </script>
 
 <template>
