@@ -28,7 +28,7 @@ onMounted(async () => {
 
 <template>
   <div class="grid grid-cols-4">
-    <div v-for="(berry, i) in berries" :key="i" class="relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
+    <div v-for="(berry, i) in berries" :key="i" class="relative flex flex-col mt-6 text-gray-700 bg-white  bg-clip-border rounded-xl w-96 shadow-sm shadow-[#EC13BF] hover:bg-[#F040CC]">
       <div class="p-6">
         <h5 class="block font-sans mb-2 text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900 uppercase">
           {{ berry.data.name }}

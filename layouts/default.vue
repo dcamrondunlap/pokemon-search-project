@@ -1,15 +1,16 @@
 <script setup>
 // Masterball colors
-//60% white (might use a slightly darker white)
-//30% #AC13EC
-//10% #EC13BF
+//60% zinc
+//30% #BC40F0
+//10% ##F040CC
 </script>
 
 <template>
   <div class="bg-zinc-100">
     <header>
+      <h1 class="font-semibold text-center text-4xl bg-[#BC40F0] text-zinc-100">Pokemon Searcher</h1>
       <nav>
-        <ul class="flex justify-end space-x-4 p-4 font-bold bg-blue-500">
+        <ul class="flex justify-end space-x-4 p-4 font-bold bg-[#BC40F0] text-zinc-100">
           <li><NuxtLink to="/">Home</NuxtLink></li>
           <li><NuxtLink to="/pokemon">Pokemon</NuxtLink></li>
           <li><NuxtLink to="/items">Items</NuxtLink></li>
