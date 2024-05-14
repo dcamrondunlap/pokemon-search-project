@@ -1,41 +1,17 @@
 <script setup>
-const berries = ref([]);
-
-onMounted(async () => {
-  const response = await fetch("https://pokeapi.co/api/v2/berry/?limit=64");
-  const { results } = await response.json();
-
-  for (let i = 0; i < results.length; i++) {
-    const berryResponse = await fetch(results[i].url);
-    const berryData = await berryResponse.json();
-
-    const firmnessResponse = await fetch(`https://pokeapi.co/api/v2/berry-firmness/${berryData.firmness.name}`);
-    const firmnessData = await firmnessResponse.json();
-
-    const flavorResponse = await fetch(`https://pokeapi.co/api/v2/berry-flavor/${berryData.flavors[0].flavor.name}`)
-    const flavorData = await flavorResponse.json();
-
-
-    berryData.firmnessData = firmnessData;
-    berryData.flavorData = flavorData;
-
-    results[i].data = berryData;
-  }
-
-  berries.value = results;
-});
+const {berries} = fetchBerries();
 </script>
 
 <template>
-  <div class="grid grid-cols-4">
-    <div v-for="(berry, i) in berries" :key="i" class="relative flex flex-col mt-6 text-gray-700 bg-white  bg-clip-border rounded-xl w-96 shadow-sm shadow-[#EC13BF] hover:bg-[#F040CC]">
+  <div class="grid grid-cols-6 min-[360px]:grid-cols-2 min-[360px]:ml-8 ">
+    <div v-for="berry in berries" :key="berry.name" class="relative flex flex-col mt-6 text-gray-700 bg-white  bg-clip-border rounded-xl w-80 shadow-sm shadow-[#EC13BF] hover:bg-[#F040CC] min-[360px]:w-36">
       <div class="p-6">
         <h5 class="block font-sans mb-2 text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900 uppercase">
-          {{ berry.data.name }}
+          {{ berry.name }}
         </h5>
         <p class="block font-sans text-base antialiased leading-relaxed text-inherit">
-          Firmness:  <br>{{ berry.data.firmnessData.name }} <br>
-          Flavor: <br>{{ berry.data.flavorData.name }}<br/>
+          Firmness:  <br>{{  berry.firmness }} <br>
+          Flavor: <br>{{  berry.flavors.join(', ') }}<br/>
         </p>
       </div>
     </div>

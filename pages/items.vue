@@ -1,16 +1,7 @@
 <script setup>
-const items = ref([]);
-const currentPage = ref(1);
-const itemsPerPage = ref(100);
+const {currentPage, itemsPerPage, nextPage, prevPage} = usePagination();
 
-onMounted(async () => {
-  const response = await fetch('https://pokeapi.co/api/v2/item/?limit=2110');
-  const data = await response.json();
-  items.value = data.results.map(item => ({
-    ...item,
-    sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${item.name}.png`
-  }));
-});
+const {items} = fetchItems();
 
 const totalPages = computed(() => Math.ceil(items.value.length / itemsPerPage.value));
 
@@ -20,25 +11,12 @@ const paginatedItems = computed(() => {
   return items.value.slice(start, end);
 });
 
-const nextPage = () => {
-  if (currentPage.value < totalPages.value) {
-    currentPage.value++;
-  }
-};
-
-const prevPage = () => {
-  if (currentPage.value > 1) {
-    currentPage.value--;
-  }
-};
-
-
 
 
 </script>
 
 <template>
-  <div class="grid grid-cols-4">
+  <div class="grid grid-cols-12 min-[360px]:grid-cols-2 min-[360px]:ml-8 max-[600px]:grid-cols-2 max-[600px]::ml-8">
     <div v-for="item in paginatedItems" :key="item.id" class="relative flex flex-col mt-2 text-gray-700 bg-white  bg-clip-border rounded-xl w-32 shadow-sm shadow-[#EC13BF] hover:bg-[#F040CC]">
       <h2>{{ item.name }}</h2>
       <img :src="item.sprite"  />
