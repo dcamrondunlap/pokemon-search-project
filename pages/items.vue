@@ -21,7 +21,9 @@ const paginatedItems = computed(() => {
       <h2>{{ item.name }}</h2>
       <img :src="item.sprite"  />
     </div>
-    <button @click="prevPage" :disabled="currentPage === 1" class="text-zinc-100 bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900 mt-5">&lt;</button>
-    <button @click="nextPage" :disabled="currentPage === totalPages" class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2  dark:focus:ring-yellow-900 my-5 mx-24">></button>
+  </div>
+  <div class="flex justify-center ">
+    <button @click="prevPage" :disabled="currentPage === 1" class="text-zinc-100 bg-[#BC40F0] hover:bg-[#F040CC]  text-base font-medium rounded-xl px-5 py-2.5 text-center me-2 mb-2 mt-5">&lt;</button>
+    <button @click="nextPage" :disabled="currentPage === totalPages" class="text-zinc-100 bg-[#BC40F0] hover:bg-[#F040CC]  text-base font-medium rounded-xl px-5 py-2.5 text-center me-2 mb-2 mt-5">></button>
   </div>
 </template>
