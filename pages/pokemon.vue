@@ -18,5 +18,7 @@ const paginatedItems = computed(() => {
       <h2>{{ pokemon.name }}</h2>
       <img :src="pokemon.sprite" />
     </div>
+    <button @click="prevPage" :disabled="currentPage === 1">&lt;</button>
+    <button @click="nextPage" :disabled="currentPage === totalPages">></button>
   </div>
 </template>
