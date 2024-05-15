@@ -1,9 +1,11 @@
 <script setup>
 
+
+;
 </script>
 
 <template>
   <div class="">
-    <h2>PlaceHolder</h2>
+    <div>Place Holder</div>
   </div>
 </template>

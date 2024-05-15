@@ -15,8 +15,10 @@ const paginatedItems = computed(() => {
 <template>
   <div>
     <div v-for="pokemon in paginatedItems" :key="pokemon.id">
-      <h2>{{ pokemon.name }}</h2>
+      <NuxtLink :to="'/pokemon/' + pokemon.id">
+        <h2>{{ pokemon.name }}</h2>
       <img :src="pokemon.sprite" />
+      </NuxtLink>
     </div>
     <button @click="prevPage" :disabled="currentPage === 1">&lt;</button>
     <button @click="nextPage" :disabled="currentPage === totalPages">></button>

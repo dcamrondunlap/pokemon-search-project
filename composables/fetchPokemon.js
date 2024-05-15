@@ -12,6 +12,7 @@ export default function fetchPokemon() {
 
       return {
         ...pokemon,
+        id: id,
         sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
       }
     });

@@ -22,7 +22,7 @@ const paginatedItems = computed(() => {
       <img :src="item.sprite"  />
     </div>
   </div>
-  <div class="flex justify-center ">
+  <div class="flex justify-center space-x-6">
     <button @click="prevPage" :disabled="currentPage === 1" class="text-zinc-100 bg-[#BC40F0] hover:bg-[#F040CC]  text-base font-medium rounded-xl px-5 py-2.5 text-center me-2 mb-2 mt-5">&lt;</button>
     <button @click="nextPage" :disabled="currentPage === totalPages" class="text-zinc-100 bg-[#BC40F0] hover:bg-[#F040CC]  text-base font-medium rounded-xl px-5 py-2.5 text-center me-2 mb-2 mt-5">></button>
   </div>
