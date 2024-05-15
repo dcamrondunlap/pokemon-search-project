@@ -3,7 +3,7 @@ let pokemon = ref(null)
 let route = useRoute()
 let id = computed(() => route.params.id)
 
-watch(id, async (newId) => { // Watch for changes in id
+watch(id, async (newId) => { 
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${newId}`)
   const data = await response.json()
 

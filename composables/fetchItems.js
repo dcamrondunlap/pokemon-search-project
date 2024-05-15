@@ -9,6 +9,7 @@ onMounted(async () => {
   const data = await response.json();
   items.value = data.results.map(item => ({
     ...item,
+    id: item.url.split('/')[6],
     sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${item.name}.png`
   }));
 });

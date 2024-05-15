@@ -2,6 +2,7 @@
 const {currentPage, itemsPerPage, nextPage, prevPage} = usePagination();
 
 const {items} = fetchItems();
+console.log('items:', items.value)
 
 const totalPages = computed(() => Math.ceil(items.value.length / itemsPerPage.value));
 
@@ -11,15 +12,19 @@ const paginatedItems = computed(() => {
   return items.value.slice(start, end);
 });
 
+console.log('item.id:', items.value.id)
 
+;
 
 </script>
 
 <template>
   <div class="grid grid-cols-2 justify-items-center sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-9 2xl:grid-cols-10 ">
     <div v-for="item in paginatedItems" :key="item.id" class="relative flex flex-col mt-2  text-gray-700 bg-white  bg-clip-border rounded-xl w-32 shadow-sm shadow-[#EC13BF] hover:bg-[#F040CC]">
-      <h2>{{ item.name }}</h2>
+      <NuxtLink :to="'/items/' + item.id">
+        <h2>{{ item.name }}</h2>
       <img :src="item.sprite"  />
+      </NuxtLink>
     </div>
   </div>
   <div class="flex justify-center space-x-6">
