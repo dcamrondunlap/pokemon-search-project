@@ -13,10 +13,10 @@ const paginatedItems = computed(() => {
 </script>
 
 <template>
-  <div>
+  <div class="grid grid-cols-3 lg:grid-cols-10">
     <div v-for="pokemon in paginatedItems" :key="pokemon.id">
       <NuxtLink :to="'/pokemon/' + pokemon.id">
-        <h2>{{ pokemon.name }}</h2>
+        <h2>{{ pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) }}</h2>
       <img :src="pokemon.sprite" />
       </NuxtLink>
     </div>

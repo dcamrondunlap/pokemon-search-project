@@ -13,9 +13,9 @@ const paginatedItems = computed(() => {
 </script>
 
 <template>
-  <div>
+  <div class="grid grid-cols-3 lg:grid-cols-10">
     <div v-for="moves in paginatedItems" :key="moves.id">
-      <h2>{{ moves.name }}</h2>
+      <h2 class="font-bold hover:text-blue-800 text-white">{{ moves.name.charAt(0).toUpperCase() + moves.name.slice(1) }}</h2>
     </div>
     <button @click="prevPage" :disabled="currentPage === 1">&lt;</button>
     <button @click="nextPage" :disabled="currentPage === totalPages">></button>

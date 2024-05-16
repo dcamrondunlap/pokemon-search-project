@@ -3,7 +3,7 @@ let pokemon = ref(null)
 let route = useRoute()
 let id = computed(() => route.params.id)
 
-watch(id, async (newId) => { 
+watch(id, async (newId) => {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${newId}`)
   const data = await response.json()
 
@@ -22,7 +22,7 @@ watch(id, async (newId) => {
     <div v-if="pokemon" class="flex flex-col justify-center items-center bg-[#BC40F0] rounded-lg shadow md:flex-row md:max-w-xl ">
       <img :src="pokemon.sprite" class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"/>
       <div class="flex flex-col justify-between p-4 leading-normal ">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-zinc-100 hover:text-[#F040CC]">{{pokemon.name}}</h5>
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-zinc-100 hover:text-[#F040CC]">{{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}}</h5>
         <p class="mb-3 font-normal text-zinc-100 hover:text-[#F040CC]">Type(s): {{ pokemon.types.join(',') }}</p>
       </div>
     </div>
