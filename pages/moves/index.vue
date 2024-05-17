@@ -9,6 +9,10 @@ const paginatedItems = computed(() => {
   return moves.value.slice(start, end);
 })
 
+definePageMeta({
+  layout: 'id-layout'
+})
+
 ;
 </script>
 

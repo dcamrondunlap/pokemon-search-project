@@ -8,6 +8,7 @@ const {berries} = fetchBerries();
       <div class="p-6">
         <h5 class="block font-sans mb-2 text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900 uppercase">
           {{ berry.name.charAt(0).toUpperCase() + berry.name.slice(1) }}
+          <img :src="berry.sprite" />
         </h5>
         <p class="block font-sans text-base antialiased leading-relaxed text-inherit">
           Firmness:  <br>{{  berry.firmness }} <br>
