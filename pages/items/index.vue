@@ -1,5 +1,5 @@
 <script setup>
-const {currentPage, itemsPerPage, nextPage, prevPage} = usePagination();
+const {currentPage, itemsPerPage, nextPage, prevPage} = usePagination({itemsPerPage: 170});
 
 const {items} = fetchItems();
 console.log('items:', items.value)
@@ -23,6 +23,7 @@ console.log('item.id:', items.value.id)
     <div v-for="item in paginatedItems" :key="item.id" class="relative flex flex-col mt-2  text-gray-700 bg-white  bg-clip-border rounded-xl w-32 shadow-sm shadow-[#EC13BF] hover:bg-[#F040CC]">
       <NuxtLink :to="'/items/' + item.id">
         <h2>{{  item.name.charAt(0).toUpperCase() + item.name.slice(1) }}</h2>
+        <img :src="item.sprite" />
       </NuxtLink>
     </div>
   </div>

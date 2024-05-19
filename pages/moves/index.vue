@@ -1,17 +1,19 @@
 <script setup>
-const {currentPage, itemsPerPage, nextPage, prevPage} = usePagination();
+const {currentPage, itemsPerPage, nextPage, prevPage} = usePagination({itemsPerPage: 400});
 
 const {moves} = fetchMoves()
+
+const sortedMoves = computed(() => {
+  return moves.value.sort((a, b) => a.name.localeCompare(b.name))
+})
 
 const paginatedItems = computed(() => {
   const start = (currentPage.value - 1) * itemsPerPage.value;
   const end = start + itemsPerPage.value;
-  return moves.value.slice(start, end);
+  return sortedMoves.value.slice(start, end);
 })
 
-definePageMeta({
-  layout: 'id-layout'
-})
+
 
 ;
 </script>
@@ -19,7 +21,7 @@ definePageMeta({
 <template>
   <div class="grid grid-cols-3 lg:grid-cols-10">
     <div v-for="moves in paginatedItems" :key="moves.id">
-      <h2 class="font-bold hover:text-blue-800 text-white">{{ moves.name.charAt(0).toUpperCase() + moves.name.slice(1) }}</h2>
+      <h2 class="font-bold my-2 mx-2 relative flex flex-col text-gray-700 bg-white  bg-clip-border rounded-xl shadow-sm shadow-[#EC13BF] hover:bg-[#F040CC] ">{{ moves.name.charAt(0).toUpperCase() + moves.name.slice(1) }}</h2>
     </div>
     <button @click="prevPage" :disabled="currentPage === 1">&lt;</button>
     <button @click="nextPage" :disabled="currentPage === totalPages">></button>

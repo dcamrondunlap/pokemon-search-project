@@ -96,8 +96,8 @@ watch(id, async (newId) => {
 
       <div v-show="activeTab === 'description'">
         <div>
-          <div class="grid lg:grid-rows-2 mt-3">
-            <p v-for="(entry, index) in englishFlavorTextEntries" :key="index" class="mb-3 font-semibold text-zinc-100 hover:text-[#F040CC]">
+          <div class="grid lg:grid-rows-2 ">
+            <p v-for="(entry, index) in englishFlavorTextEntries" :key="index" class="mb-3 font-normal text-zinc-100 hover:text-[#F040CC]">
               {{ entry.version_group.name.charAt(0).toUpperCase() + entry.version_group.name.slice(1) }} <br/>
               {{ entry.text.charAt(0).toUpperCase() + entry.text.slice(1) }}
             </p>
@@ -112,3 +112,40 @@ watch(id, async (newId) => {
   </div>
 </div>
 </template>
+
+
+
+<!-- <div class="flex justify-center items-center lg:mt-5 bg-zinc-100">
+    <div v-if="items" class="flex flex-col justify-center items-center bg-[#BC40F0] rounded-lg shadow md:flex-row md:max-w-xl">
+      <img :src="items.sprite" class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"/>
+      <div class="flex flex-col justify-between p-4 leading-normal">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-zinc-100 hover:text-[#F040CC]">{{ items.name.charAt(0).toUpperCase() + items.name.slice(1) }}</h5>
+        <p class="mb-3 font-normal text-zinc-100 hover:text-[#F040CC]">
+          {{ items.cost }} Pokedollar(s)
+        </p>
+        <div>
+          <p class="mb-3 font-normal text-zinc-100 hover:text-[#F040CC] uppercase">
+            Attributes
+          </p>
+          <p v-for="(attribute, index) in items.attributes" :key="index" class="mb-3 font-normal text-zinc-100 hover:text-[#F040CC]">
+
+            {{ attribute.name.charAt(0).toUpperCase() + attribute.name.slice(1) }}
+          </p>
+        </div>
+        <p v-if="items.category" class="mb-3 font-normal text-zinc-100 hover:text-[#F040CC] ">
+          {{ items.category.name.charAt(0).toUpperCase() + items.category.name.slice(1) }}
+        </p>
+        <div>
+          <div class="grid lg:grid-rows-2 ">
+            <p v-for="(entry, index) in englishFlavorTextEntries" :key="index" class="mb-3 font-normal text-zinc-100 hover:text-[#F040CC]">
+              {{ entry.version_group.name.charAt(0).toUpperCase() + entry.version_group.name.slice(1) }} <br/>
+              {{ entry.text.charAt(0).toUpperCase() + entry.text.slice(1) }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-else>
+      Loading...
+    </div>
+  </div> -->

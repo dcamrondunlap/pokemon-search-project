@@ -1,5 +1,5 @@
 <script setup>
-const {currentPage, itemsPerPage, nextPage, prevPage} = usePagination();
+const {currentPage, itemsPerPage, nextPage, prevPage} = usePagination(100);
 
 const {pokemon} = fetchPokemon()
 
