@@ -10,6 +10,7 @@ onMounted(async () => {
   items.value = data.results.map(item => ({
     ...item,
     id: item.url.split('/')[6],
+    type: 'item',
     sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${item.name}.png`
   }));
 });
