@@ -10,11 +10,16 @@ onMounted(async () => {
   for (const berry of data.results) {
     const berryResponse = await fetch(berry.url);
     const berryData = await berryResponse.json();
+
     berries.value.push({
       name: berry.name,
       id: berry.url.split('/')[6],
       firmness: berryData.firmness.name,
-      flavors: berryData.flavors.map(flavor => flavor.flavor.name)
+      flavors: berryData.flavors.map(flavor => flavor.flavor.name),
+      growth_time: berryData.growth_time,
+      size: berryData.size,
+      smoothness: berryData.smoothness,
+      soil_dryness: berryData.soil_dryness,
     });
   }
 });
