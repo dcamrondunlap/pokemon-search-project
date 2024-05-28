@@ -33,6 +33,6 @@ watch(id, async (newId) => {
     </h1>
   </div>
   <div v-else>
-    loading...
+    <Loading />
   </div>
 </template>

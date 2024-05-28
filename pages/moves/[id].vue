@@ -35,5 +35,8 @@ watch(() => route.params.id, async (newId) => {
         {{ englishFlavorTextEntries[0].flavor_text }}
       </p>
     </div>
+    <div v-else>
+      <Loading />
+    </div>
   </div>
 </template>

@@ -3,9 +3,9 @@ const {berries} = fetchBerries();
 </script>
 
 <template>
-  <div class="grid grid-cols-1 justify-items-center sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-9 2xl:grid-cols-10 ">
-    <div v-for="berry in berries" :key="berry.name" class="relative flex flex-col mt-6 text-gray-700 bg-white  bg-clip-border rounded-xl w-80 shadow-sm shadow-[#EC13BF] hover:bg-[#F040CC] min-[360px]:w-36">
-      <div class="p-2">
+  <div class="grid grid-cols-1 justify-items-center sm:grid-cols-5 gap-6">
+    <div v-for="berry in berries" :key="berry.name" class="relative flex flex-col mt-6 text-gray-700 bg-white  bg-clip-border rounded-xl w-80 shadow-sm shadow-[#EC13BF]">
+      <div class="p-6">
         <NuxtLink :to="`/berries/${berry.id}`">
           <h5 class="block font-sans mb-2 text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900 uppercase">
             {{ berry.name.charAt(0).toUpperCase() + berry.name.slice(1) }}

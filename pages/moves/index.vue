@@ -19,13 +19,22 @@ const paginatedItems = computed(() => {
 </script>
 
 <template>
-  <div v-if="!isLoading" class="grid grid-cols-3 lg:grid-cols-10">
-    <div  v-for="moves in paginatedItems" :key="moves.id">
-      <NuxtLink :to="'/moves/' + moves.id">
-        <h2 class="font-bold my-2 mx-2 relative flex flex-col text-gray-700 bg-white  bg-clip-border rounded-xl shadow-sm shadow-[#EC13BF] hover:bg-[#F040CC] ">{{ moves.name.charAt(0).toUpperCase() + moves.name.slice(1) }}</h2>
-      </NuxtLink>
+  <div>
+    <div v-if="isLoading" class="text-center my-4">
+      <Loading />
     </div>
-    <button @click="prevPage" :disabled="currentPage === 1">&lt;</button>
-    <button @click="nextPage" :disabled="currentPage === totalPages">></button>
+    <div v-else class="grid grid-cols-3 lg:grid-cols-10">
+      <div v-for="move in paginatedItems" :key="move.id">
+        <NuxtLink :to="'/moves/' + move.id">
+          <h2 class="font-bold my-2 mx-2 relative flex flex-col text-gray-700 bg-white bg-clip-border rounded-xl shadow-sm shadow-[#EC13BF] hover:bg-[#F040CC] ">
+            {{ move.name.charAt(0).toUpperCase() + move.name.slice(1) }}
+          </h2>
+        </NuxtLink>
+      </div>
+    </div>
+    <div class="flex justify-center space-x-6 mt-5">
+      <button @click="prevPage" :disabled="currentPage === 1" class="text-zinc-100 bg-[#BC40F0] hover:bg-[#F040CC] text-base font-medium rounded-xl px-5 py-2.5 text-center">&lt;</button>
+      <button @click="nextPage" :disabled="currentPage === totalPages" class="text-zinc-100 bg-[#BC40F0] hover:bg-[#F040CC] text-base font-medium rounded-xl px-5 py-2.5 text-center">&gt;</button>
+    </div>
   </div>
 </template>

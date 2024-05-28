@@ -36,21 +36,21 @@ watch(id, async (newId) => {
   <div class="mt-10">
     <div v-if="pokemon" class="bg-[#BC40F0] mx-auto max-w-sm rounded-lg shadow-xl shadow-zinc-400 border border-[#F040CC] text-zinc-100 font-medium sm:max-w-xl">
       <ul class="flex space-x-4 justify-center">
-        <li class="mt-2 hover:text-[#F040CC]">
+        <li class="mt-2">
           <button v-bind:class="{ active: activeTab === 'name' }" v-on:click="activeTab = 'name'">Name</button>
         </li>
-        <li class="mt-2 hover:text-[#F040CC]">
+        <li class="mt-2">
           <button v-bind:class="{ active: activeTab === 'types' }" v-on:click="activeTab = 'types'">Types</button>
         </li>
-        <li class="mt-2 hover:text-[#F040CC]">
+        <li class="mt-2">
           <button v-bind:class="{ active: activeTab === 'descriptions' }" v-on:click="activeTab = 'descriptions'">Descriptions</button>
         </li>
       </ul>
       <hr class="mt-2">
       <div>
-        <div v-show="activeTab === 'name'" class="flex justify-center mt-5 ">
-          <h5 class="text-center hover:text-[#F040CC]">{{ pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) }}</h5>
-          <div class="grid grid-cols-2">
+        <div v-show="activeTab === 'name'" class="flex flex-col mt-5 items-center">
+          <h5 class="text-center">{{ pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) }}</h5>
+          <div class="flex flex-wrap justify-center">
             <img :src="pokemon.sprite.front_default" class="object-cover w-1/2 rounded-t-lg h-auto  md:w-48 md:rounded-none md:rounded-s-lg"/>
           <img :src="pokemon.sprite.front_shiny" class="object-cover w-1/2 rounded-t-lg h-auto  md:w-48 md:rounded-none md:rounded-s-lg"/>
           <img :src="pokemon.sprite.front_female" class="object-cover w-1/2 rounded-t-lg h-auto  md:w-48 md:rounded-none md:rounded-s-lg"/>
@@ -66,7 +66,7 @@ watch(id, async (newId) => {
           <div class="">
             <p class="mb-2 font-normal text-zinc-100 hover:text-[#F040CC] uppercase">Types</p>
             <hr>
-            <div class="border-">
+            <div class="p-2">
               <p v-for="(type, index) in pokemon.types" :key="index" class="mb-3 font-normal text-zinc-100 hover:text-[#F040CC]">{{ type.charAt(0).toUpperCase() + type.slice(1) }}</p>
             </div>
           </div>
@@ -74,7 +74,7 @@ watch(id, async (newId) => {
 
         <div v-show="activeTab === 'descriptions'">
           <div>
-            <div class="grid lg:grid-rows-2 ">
+            <div class="grid lg:grid-rows-2 p-4">
               <p v-if="englishFlavorTextEntries.length > 0" class="mb-3 font-normal text-zinc-100 hover:text-[#F040CC]">
                 {{ pokemon.generation }}
                 {{ englishFlavorTextEntries[0].flavor_text }}
@@ -84,6 +84,8 @@ watch(id, async (newId) => {
         </div>
       </div>
     </div>
-    <div v-else>Loading...</div>
+    <div v-else>
+      <Loading />
+  </div>
   </div>
 </template>

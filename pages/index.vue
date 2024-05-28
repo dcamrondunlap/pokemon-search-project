@@ -81,7 +81,7 @@ onMounted(fetchAllData);
         @input="filterResults"
         @keydown.enter="handleKeyPress"
         placeholder="Search..."
-        class="block w-full p-4 ps-10 text-sm border border-zinc-300 shadow-lg rounded-lg bg-zinc-200"
+        class="block w-full p-4 ps-10 text-sm border border-zinc-300 shadow-lg rounded-lg bg-zinc-200 focus:outline-none focus:ring focus:ring-[#F040CC]"
       />
       <button
         @click="handleKeyPress"
@@ -89,7 +89,7 @@ onMounted(fetchAllData);
       >
       Search</button>
       </div>
-      <div v-for="item in filteredResults" :key="item.name" @click="navigateToItem(item)" class="cursor-pointer">
+      <div v-for="item in filteredResults" :key="item.name" @click="navigateToItem(item)" class="block max-w-md bg-zinc-200 border border-zinc-300 shadow cursor-pointer">
         {{ item.name }}
       </div>
     </div>
